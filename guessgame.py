@@ -3,10 +3,12 @@ import random
 import time
 
 print("""Hi! there, I hope you are doing great.
-WELCOME to the guessing game.
-I am going to pick a number between 1 and 100""")
+WELCOME to the NUMBER GUESSING GAME.
+I am going to pick a number between 1 and 100.
+You have to guess that number within 10 attempts.
+GOOD LUCK! """)
 
-time.sleep(3)
+time.sleep(2)
 print("picking a number....")
 
 #selecting random number
@@ -21,10 +23,16 @@ count=0
 #applying wrong guess condition
 while guess!=num:
     count+=1
-    if guess<num:
+    if count==10:
+        print("""You have finished your attempt limit.
+Better Luck Next Time!""")
+        break
+    elif guess<num:
         guess=int(input("guess the higher number"))
-    if guess>num:
+    elif guess>num:
         guess=int(input("guess the lower number"))
 
+
 #for right guess
-print(f"CONGRATS! you guess the correct number {num}.you took {count}times to guess the number")
+if guess==num:
+    print(f"CONGRATS! you guess the correct number {num}.you took {count + 1} times to guess the number")
